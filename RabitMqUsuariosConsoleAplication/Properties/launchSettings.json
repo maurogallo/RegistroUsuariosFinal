@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RabitMqUsuariosConsoleAplication": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

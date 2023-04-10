@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  registrousuarios:
+    image: ${DOCKER_REGISTRY-}registrousuarios
+    build:
+      context: .
+      dockerfile: RegistroUsuarios/Dockerfile
+
+  usuariosmongodb:
+    image: ${DOCKER_REGISTRY-}usuariosmongodb
+    build:
+      context: .
+      dockerfile: UsuariosMongoDB/Dockerfile
+
+
+  rabitmqusuariosconsoleaplication:
+    image: ${DOCKER_REGISTRY-}rabitmqusuariosconsoleaplication
+    build:
+      context: .
+      dockerfile: RabitMqUsuariosConsoleAplication/Dockerfile
+
