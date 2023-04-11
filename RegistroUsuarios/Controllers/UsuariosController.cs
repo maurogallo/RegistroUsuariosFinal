@@ -33,6 +33,31 @@ namespace RegistroUsuarios.Controllers
             return usuariosServices.GetUsuarioById(Id);
         }
 
+        [HttpGet("GetUsuariosByidMongo")]
+        public async Task<string> GetUsuariosByidMongo(string nombre, string apellido, string nombreUsuario)
+        {
+            string apiURL = "https://localhost:7017/api/Usuario";
+            UriBuilder builder = new UriBuilder(apiURL);
+            builder.Query = "nombre=" + nombre + "&apellido=" + apellido + "&nombreUsuario=" + nombreUsuario + "";
+
+            using (var client = new HttpClient())
+            {
+                HttpResponseMessage response = client.GetAsync(builder.Uri).Result;
+                if (response.IsSuccessStatusCode)
+                {
+
+                   var  respuesta =  response.Content.ReadAsStringAsync();
+                  
+
+
+                    return respuesta.ToString();
+                        
+
+                }
+            }
+            return "No exiten usuarios con esos datos";
+        }
+
         [HttpPost("addusuarios")]
         public Usuarios AddUsuarios(Usuarios usuarios)
         {

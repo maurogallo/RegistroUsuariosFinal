@@ -37,12 +37,18 @@ namespace RegistroUsuarios.Services
         {
             return _dbContext.Usuarios.ToList();
         }
+              
 
         public Usuarios UpdateUsuarios(Usuarios usuarios)
         {
             var result = _dbContext.Usuarios.Update(usuarios);
             _dbContext.SaveChanges();
             return result.Entity;
+        }
+
+        public Usuarios GetUsuarioByIdMongo(int id)
+        {
+            return (Usuarios)_dbContext.Usuarios.Where(x => x.UserId == id);
         }
     }
 }
