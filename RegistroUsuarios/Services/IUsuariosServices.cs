@@ -10,5 +10,6 @@ namespace RegistroUsuarios.Services
         public Usuarios AddUsuarios(Usuarios usuarios);
         public Usuarios UpdateUsuarios(Usuarios usuarios);
         public bool DeleteUsuarios(int Id);
+        public List<Usuarios> GetUsuariosById(List<int> ids);
     }
 }

@@ -1,5 +1,7 @@
-﻿using MediatR;
+﻿using AutoMapper.Configuration.Conventions;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RegistroUsuarios.Aplicacion;
 using RegistroUsuarios.Modelo;
 using RegistroUsuarios.RabitMQ;
@@ -47,11 +49,16 @@ namespace RegistroUsuarios.Controllers
                 {
 
                    var  respuesta =  response.Content.ReadAsStringAsync();
-                  
 
+                    var json = JsonConvert.SerializeObject(respuesta);
 
-                    return respuesta.ToString();
-                        
+                    return json;       
+                    
+                    //foreach(var r in json.Replace("[","").Split(","))
+                    //{
+                    //    var campo = r.Replace("\"", "");
+                    //  var usuarios =  GetUsuariosById( Int32.Parse(campo));
+                    //}
 
                 }
             }

@@ -39,6 +39,11 @@ namespace RegistroUsuarios.Services
         }
               
 
+        public List<Usuarios> GetUsuariosById(List<int> ids)
+        {
+            return _dbContext.Usuarios.Where(x=> x.UserId == ids.FirstOrDefault()).ToList();
+        }
+
         public Usuarios UpdateUsuarios(Usuarios usuarios)
         {
             var result = _dbContext.Usuarios.Update(usuarios);
